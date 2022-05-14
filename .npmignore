@@ -4,3 +4,4 @@ example
 .babelrc
 .gitignore
 webpack.config.js
+.prettierrc
