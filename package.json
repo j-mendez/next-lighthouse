@@ -1,6 +1,6 @@
 {
   "name": "next-lighthouse",
-  "version": "1.0.7",
+  "version": "1.2.4",
   "description": "A React component used for rendering Lighthouse JSON reports.",
   "main": "dist/index.js",
   "scripts": {

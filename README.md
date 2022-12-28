@@ -18,7 +18,7 @@ import ReportViewer from 'react-lighthouse-viewer';
 import jsonReport from './report.json';
 
 const App = () => (
-    <ReportViewer json={jsonReport} />
+    <ReportViewer json={jsonReport} darkMode={false} id={"container-id"} />
 );
 render(<App />, document.getElementById("root"));
 ```
@@ -118,3 +118,9 @@ For more information on Lighthouse, see https://developers.google.com/web/tools/
 ---
 
 Hacked with ❤️ by [BLEN](https://blencorp.com) Corp in Washington, DC.
+
+## Notes
+
+The following files need to be manually stiched before every release after compiling `index.js` and `templates.js` with the css from the `index.js` import.
+
+Working versions are `1.1.0` and `1.2.4` for dark mode.

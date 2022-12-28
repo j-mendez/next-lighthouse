@@ -90,9 +90,6 @@ class ReportUIFeatures {
     this._document.addEventListener('keyup', this.onKeyUp);
     this._document.addEventListener('copy', this.onCopy);
 
-    const topbarLogo = this._dom.find('.lh-topbar__logo', this._document);
-    topbarLogo.addEventListener('click', () => this._toggleDarkTheme());
-
     let turnOffTheLights = false;
     // Do not query the system preferences for DevTools - DevTools should only apply dark theme
     // if dark is selected in the settings panel.
@@ -123,6 +120,7 @@ class ReportUIFeatures {
     if (Object.keys(this.json.categories).length >= 2) {
       this._setupStickyHeaderElements();
       const containerEl = this._dom.find('.lh-container', this._document);
+
       const elToAddScrollListener = this._getScrollParent(containerEl);
       elToAddScrollListener.addEventListener(
         'scroll',
@@ -659,7 +657,6 @@ class ReportUIFeatures {
   }
 
   /**
-   * @private
    * @param {boolean} [force]
    */
   _toggleDarkTheme(force) {
