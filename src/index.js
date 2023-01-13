@@ -10,7 +10,7 @@ export const Template = () => {
 };
 
 // return features to re-use
-const generateReport = (initFeatures, darkMode) => {
+const generateReport = (json, darkMode) => {
   try {
     const dom = new DOM(document);
 
@@ -23,7 +23,7 @@ const generateReport = (initFeatures, darkMode) => {
 
     const features = new ReportUIFeatures(dom);
     
-    if (initFeatures) {
+    if (json) {
       features.initFeatures(json);
     }
     
@@ -40,19 +40,18 @@ const generateReport = (initFeatures, darkMode) => {
 export default function ReportViewer({
   id = 'react-lighthouse-viewer',
   json = {},
-  initFeatures = false,
   darkMode = false
 }) {
   useEffect(() => {
     const exist = json && Object.keys(json).length !== 0;
-    const features = exist && generateReport(initFeatures, darkMode);
+    const features = exist && generateReport(json, darkMode);
 
     return () => {
       if (features) {
         features.dropFeatures();
       }
     };
-  }, [json, initFeatures]);
+  }, [json, darkMode]);
 
   return (
     <div className="lh-root lh-vars">
